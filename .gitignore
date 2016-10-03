@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.vscode/
+phaser-es6-webpack/
