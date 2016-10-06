@@ -12,7 +12,11 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\update_goto_obj.gml</script>
+    <scripts name="cell">
+      <script>scripts\update_goto_obj.gml</script>
+      <script>scripts\col_jelly.gml</script>
+    </scripts>
+    <script>scripts\max_speed.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Cell</object>
@@ -21,6 +25,9 @@
   <rooms name="rooms">
     <room>rooms\game</room>
   </rooms>
+  <constants number="1">
+    <constant name="MAX_SPEED">20</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
