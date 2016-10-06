@@ -25,7 +25,8 @@
   <rooms name="rooms">
     <room>rooms\game</room>
   </rooms>
-  <constants number="1">
+  <constants number="2">
+    <constant name="MAX_CELL_IMAGES">10</constant>
     <constant name="MAX_SPEED">20</constant>
   </constants>
   <help>

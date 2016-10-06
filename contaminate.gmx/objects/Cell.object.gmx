@@ -29,6 +29,11 @@
 
 // Fix Rotation
 phy_fixed_rotation = true;
+
+// Images Don't auto rotate
+image_speed = 0;
+
+//physics_world_draw_debug(true);
 </string>
           </argument>
         </arguments>
@@ -209,7 +214,7 @@ phy_fixed_rotation = true;
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.0500000007450581</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0.200000002980232</PhysicsObjectLinearDamping>
+  <PhysicsObjectLinearDamping>0</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.800000011920929</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>

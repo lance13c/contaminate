@@ -16,11 +16,13 @@ if (colId == noone) {
     
     var imageOffsetX = abs((self.phy_speed_x / MAX_SPEED) / 2);
     var imageOffsetY = abs((self.phy_speed_y / MAX_SPEED) / 2);
-    var dir = point_direction(self.x, self.y, self.x + self.phy_speed_x, self.y + self.phy_speed_y);
-    //image_angle = dir;
-    //phy_rotation = dir + 90;
+    var dir = point_direction(0, 0, self.phy_speed_x, self.phy_speed_y);
+    //phy_rotation = -1* dir;
+    image_index = 7;
+    //self.phy_rotation += sqrt(sqr(phy_speed_x) + sqr(phy_speed_y)) /10;
+    //phy_rotation = dir;
     // Image scales are reversed because the opposite scale needs to be affected
-    image_xscale = 0.5; //(1 - imageOffsetY);
+    //image_xscale = 0.5; //(1 - imageOffsetY);
     //image_yscale = (1 - imageOffsetX);
     
 } else {
