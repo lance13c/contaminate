@@ -3,6 +3,8 @@
 // Direction = direction to object of impact
 
 // Get collision instance
+/*
+
 var colId = instance_place(self.x, self.y, all); // Collision Object ID
 
 // If Ids are the same, return out of the method
@@ -18,7 +20,7 @@ if (colId == noone) {
     var imageOffsetY = abs((self.phy_speed_y / MAX_SPEED) / 2);
     var dir = point_direction(0, 0, self.phy_speed_x, self.phy_speed_y);
     //phy_rotation = -1* dir;
-    image_index = 7;
+    //image_index = 7;
     //self.phy_rotation += sqrt(sqr(phy_speed_x) + sqr(phy_speed_y)) /10;
     //phy_rotation = dir;
     // Image scales are reversed because the opposite scale needs to be affected
@@ -28,5 +30,7 @@ if (colId == noone) {
 } else {
     image_xscale = 1;
 }
+
+*/
 
 
