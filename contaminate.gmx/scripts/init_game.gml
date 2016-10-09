@@ -16,3 +16,27 @@ global.pSystemCell = part_system_create();
     part_type_direction(global.pPartCell1, 0, 359, 0, 1);
     part_type_gravity(global.pPartCell1, 0, 0);
     part_type_blend(global.pPartCell1, false);
+    
+    // Virus Outside
+    global.pPartCellV = part_type_create();
+    part_type_life(global.pPartCellV, 5, 10);
+    part_type_shape(global.pPartCellV, pt_shape_pixel);
+    part_type_size(global.pPartCellV, 0.1, 0.1, 0.00, 0.00);
+    part_type_colour1(global.pPartCellV, c_purple);// c_lime);
+    part_type_alpha2(global.pPartCellV, 0.5, 0.7);
+    part_type_speed(global.pPartCellV, 0.01, 0.01, 0, 0.00);
+    part_type_direction(global.pPartCellV, 0, 359, 0, 1);
+    part_type_gravity(global.pPartCellV, 0, 0);
+    part_type_blend(global.pPartCellV, false);
+    
+    // Blend
+    global.pPartCellV2 = part_type_create();
+    part_type_life(global.pPartCellV2, 2, 4);
+    part_type_shape(global.pPartCellV2, pt_shape_spark);
+    part_type_size(global.pPartCellV2, 0.01, 0.05, 0.00, 0.01);
+    part_type_colour1(global.pPartCellV2, c_purple);
+    part_type_alpha2(global.pPartCellV2, 0.5, 0.7);
+    part_type_speed(global.pPartCellV2, 0.00, 0.00, 0, 0.00);
+    part_type_direction(global.pPartCellV2, 0, 359, 0, 1);
+    part_type_gravity(global.pPartCellV2, 0, 0);
+    part_type_blend(global.pPartCellV2, true);

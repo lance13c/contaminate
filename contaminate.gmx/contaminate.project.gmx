@@ -50,7 +50,8 @@
   <rooms name="rooms">
     <room>rooms\game</room>
   </rooms>
-  <constants number="3">
+  <constants number="4">
+    <constant name="INFECTION_RATE">1</constant>
     <constant name="MAX_CELL_HP">100</constant>
     <constant name="MAX_CELL_IMAGES">3</constant>
     <constant name="MAX_SPEED">20</constant>
