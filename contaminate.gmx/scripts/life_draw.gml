@@ -10,6 +10,7 @@ if (scale > 1) {
     scale = 1;
 }
 
-draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, image_angle, image_blend, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, scale);
 
-draw_text(self.x, self.y - 30, self.hp);
+//draw_text(self.x, self.y - 40, self.hp);
+//draw_text(self.x, self.y - 80, self.regen);

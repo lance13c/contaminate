@@ -1,8 +1,8 @@
 var obj1 = argument0;   // Object to go towards
 var obj2 = argument1;   // Object that moves towards obj1
 
-if (instance_exists(CellCenter)){
-    obj1 = CellCenter;
+if (instance_exists(self.centerCell)){
+    obj1 = self.centerCell;
 } else {
     obj1 = self;
 }

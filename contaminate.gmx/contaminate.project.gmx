@@ -12,14 +12,24 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\movement.gml</script>
     <scripts name="cell">
       <script>scripts\update_goto_obj.gml</script>
       <script>scripts\life.gml</script>
       <script>scripts\life_draw.gml</script>
+      <scripts name="collisions">
+        <scripts name="center_cell">
+          <script>scripts\cell_col_center_cell.gml</script>
+        </scripts>
+      </scripts>
+      <script>scripts\in_regen_range.gml</script>
+      <script>scripts\cell_movement.gml</script>
     </scripts>
     <script>scripts\max_min.gml</script>
     <scripts name="cell_center">
-      <script>scripts\movement.gml</script>
+      <scripts name="draw">
+        <script>scripts\cell_center_draw_regen_circle.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
