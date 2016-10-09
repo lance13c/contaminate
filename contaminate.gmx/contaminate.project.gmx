@@ -10,6 +10,7 @@
     <sprite>sprites\s_cell</sprite>
     <sprite>sprites\s_cell_center</sprite>
     <sprite>sprites\s_wall</sprite>
+    <sprite>sprites\s_virus</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -27,6 +28,10 @@
       </scripts>
       <script>scripts\in_regen_range.gml</script>
       <script>scripts\cell_movement.gml</script>
+      <scripts name="particles">
+        <script>scripts\cell_particle_emiter.gml</script>
+        <script>scripts\cell_particle_create.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\max_min.gml</script>
     <scripts name="cell_center">
@@ -34,11 +39,13 @@
         <script>scripts\cell_center_draw_regen_circle.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\init_game.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Cell</object>
     <object>objects\CellCenter</object>
     <object>objects\Wall</object>
+    <object>objects\Virus</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>
