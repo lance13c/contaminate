@@ -24,5 +24,5 @@ part_emitter_burst(global.pSystemCell, self.pEmitCell, global.pPartCell1, amount
 
 // If infected
 if (self.infectedLevel > 0) {
-    part_emitter_burst(global.pSystemCell, self.pEmitCellVirus, global.pPartCellV2, 5);
+    part_emitter_burst(global.pSystemCell, self.pEmitCellVirus, global.pPartCellV, 5);
 }
