@@ -41,6 +41,9 @@
     </scripts>
     <script>scripts\init_game.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\grayscale_cell.shader</shader>
+  </shaders>
   <objects name="objects">
     <object>objects\Cell</object>
     <object>objects\CellCenter</object>

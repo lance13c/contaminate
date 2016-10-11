@@ -42,7 +42,7 @@ self.jellyEffectTime = 2                    // 0 - Range of time when a jelly li
 self.MAX_IMAGES = 2                         // Max number of images in sprite - 1
 
 self.infectionR = 30;                   // Infection Resistence, aka max infection level
-self.infectedLevel = 1;                  // Current level of infection
+self.infectedLevel = 0;                  // Current level of infection
 self.infected = false;                  // If the cell is totally infected
 
 </string>

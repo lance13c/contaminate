@@ -10,7 +10,11 @@ if (scale > 1) {
     scale = 1;
 }
 
+
+shader_set(grayscale_cell);
+
 draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, scale);
 
+shader_reset();
 //draw_text(self.x, self.y - 40, self.hp);
 //draw_text(self.x, self.y - 80, self.regen);
