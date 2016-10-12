@@ -196,8 +196,10 @@ var xPos = lengthdir_x(halfWidth, dir);
 var yPos = lengthdir_y(halfWidth, dir);
 
 var newCellID = instance_create(self.x + xPos,self.y + yPos, Cell);
+var newCellID2 = instance_create(self.x + xPos,self.y + yPos, Cell);
 
 newCellID.centerCell = self.id;
+newCellID2.centerCell = self.id;
 
 </string>
           </argument>
