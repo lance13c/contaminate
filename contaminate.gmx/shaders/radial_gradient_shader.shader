@@ -27,31 +27,32 @@ varying vec4 v_vColour;
 uniform float expand;       // How much is only inner color
 uniform vec2 center;        // The center position of the gradient, relitive to texture
 uniform float radius;       // Radius of the gradient, relitive to texture
-uniform vec2 roomSize; // Height of texture
+uniform vec2 spriteSize;    // Height of texture
 
 void main()
 {
     
     vec4 Color = texture2D( gm_BaseTexture, v_vTexcoord );
 
-    //vec2 centerFromSfml = roomSize - center;
-    vec2 p = abs((gl_FragCoord.xy - vec2(0.5,0.5)) / radius); // vec2 should be center of gradient
+    vec2 PosRange = gl_FragCoord.xy / spriteSize;       // gl_FragCoord in 0-1 range
+    vec2 p = (PosRange.xy - vec2(0.5, 0.5)) / radius; // vec2 should be center of gradient, abs not nessessary, b/c dot product afterwards
     
     float dist = sqrt(dot(p, p)); // Pathagorian therom // Distance between 2 points
     
     if (dist < 1.0)
     {
-        //dist = dist / 100.0;
-        Color.r += (dist);
-        Color.g += (dist);
-        Color.b += (dist);
+        Color.r = 2.0;//(dist);
+        Color.g = 2.0;//(dist);
+        Color.b = 2.0;//(dist);
         gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
     } else
     {
-        dist = dist / 1000.0;
-        Color.r += (dist);
-        Color.g += (dist);
-        Color.b += (dist);
+        Color.r = mod(floor(gl_FragCoord.y), 2.0) * 2.0;//(dist);
+        Color.g = mod(floor(gl_FragCoord.y), 2.0) * 2.0;//(dist);
+        Color.b = mod(floor(gl_FragCoord.y), 2.0) * 2.0;//(dist);
+        //Color.r += (dist);
+        //Color.g += (dist);
+        //Color.b += (dist);
         gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
     }
     //gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
