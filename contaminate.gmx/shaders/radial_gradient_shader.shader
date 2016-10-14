@@ -32,29 +32,58 @@ uniform vec2 spriteSize;    // Height of texture
 void main()
 {
     
-    vec4 Color = texture2D( gm_BaseTexture, v_vTexcoord );
+    float dist = length( center - gl_FragCoord.xy ); // Distance
+    
+    vec4 Color = v_vColour;
 
-    vec2 PosRange = gl_FragCoord.xy / spriteSize;       // gl_FragCoord in 0-1 range
-    vec2 p = (PosRange.xy - vec2(0.5, 0.5)) / radius; // vec2 should be center of gradient, abs not nessessary, b/c dot product afterwards
+    float maxDistance = radius; //pow( abs(radius), 0.23);
+    float quadDistance = dist;  //pow( abs(dist), 0.23);
+
+    float quadIntensity = 1.0 - min( quadDistance, maxDistance ) / maxDistance;
     
-    float dist = sqrt(dot(p, p)); // Pathagorian therom // Distance between 2 points
-    
-    if (dist < 1.0)
+    if (quadIntensity > 0.0 && quadIntensity < 1.0)
     {
-        Color.r = 2.0;//(dist);
-        Color.g = 2.0;//(dist);
-        Color.b = 2.0;//(dist);
+        Color.r += 1.0;//(dist);
+        Color.g += 1.0;//(dist);
+        Color.b += 1.0;//(dist);
         gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
     } else
     {
-        Color.r = mod(floor(gl_FragCoord.y), 2.0) * 2.0;//(dist);
-        Color.g = mod(floor(gl_FragCoord.y), 2.0) * 2.0;//(dist);
-        Color.b = mod(floor(gl_FragCoord.y), 2.0) * 2.0;//(dist);
-        //Color.r += (dist);
-        //Color.g += (dist);
-        //Color.b += (dist);
+        //Color.r += 1.0;//(dist);
+        //Color.g += 1.0;//(dist);
+        //Color.b += 1.0;//(dist);
         gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
     }
+    
+    
+
+    //gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord ); 
+
+
+    //vec4 Color = texture2D( gm_BaseTexture, v_vTexcoord );
+
+    //vec2 PosRange = gl_FragCoord.xy / spriteSize;       // gl_FragCoord in 0-1 range
+    //vec2 p = (PosRange.xy - vec2(0.5, 0.5)) / radius; // vec2 should be center of gradient, abs not nessessary, b/c dot product afterwards
+    
+    //float dist = sqrt(dot(p, p)); // Pathagorian therom // Distance between 2 points
+    
+    //if (dist < 1.0)
+    //{
+    //    Color.r = 2.0;//(dist);
+    //    Color.g = 2.0;//(dist);
+    //    Color.b = 2.0;//(dist);
+    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
+    //} else
+    //{
+    //    Color.r = mod(floor(gl_FragCoord.y), 2.0) * 1.0;//(dist);
+    //    Color.g = mod(floor(gl_FragCoord.y), 2.0) * 1.0;//(dist);
+    //    Color.b = mod(floor(gl_FragCoord.y), 2.0) * 1.0;//(dist);
+    //    //Color.r += (dist);
+    //    //Color.g += (dist);
+    //    //Color.b += (dist);
+    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
+    //}
     //gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
+
 }
 
