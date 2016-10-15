@@ -2,12 +2,13 @@
 // Simple passthrough vertex shader
 //
 attribute vec3 in_Position;                  // (x,y,z)
-//attribute vec3 in_Normal;                  // (x,y,z)     unused in this shader.	
+//attribute vec3 in_Normal;                  // (x,y,z)     unused in this shader.
 attribute vec4 in_Colour;                    // (r,g,b,a)
 attribute vec2 in_TextureCoord;              // (u,v)
 
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
+varying vec2  v_vPosition;
 
 void main()
 {
@@ -16,6 +17,7 @@ void main()
     
     v_vColour = in_Colour;
     v_vTexcoord = in_TextureCoord;
+    v_vPosition = in_Position.xy;
 }
 
 //######################_==_YOYO_SHADER_MARKER_==_######################@~//
@@ -23,6 +25,7 @@ void main()
 //
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
+varying vec2 v_vPosition;
 
 uniform float expand;       // How much is only inner color
 uniform vec2 center;        // The center position of the gradient, relitive to texture
@@ -32,28 +35,42 @@ uniform vec2 spriteSize;    // Height of texture
 void main()
 {
     
-    float dist = length( center - gl_FragCoord.xy ); // Distance
+    // Test Setting the color to 1 if x < AN AMOUNT
+
+    float dist = length( center - v_vPosition.xy ); // Distance
     
     vec4 Color = v_vColour;
 
-    float maxDistance = radius; //pow( abs(radius), 0.23);
-    float quadDistance = dist;  //pow( abs(dist), 0.23);
+    float maxDistance = pow( abs(radius), 0.4);
+    float quadDistance = pow( abs(dist), 0.4);
 
-    float quadIntensity = 1.0 - min( quadDistance, maxDistance ) / maxDistance;
+    float quadIntensity = 1.0 - (min( quadDistance, maxDistance ) / maxDistance);
     
-    if (quadIntensity > 0.0 && quadIntensity < 1.0)
-    {
-        Color.r += 1.0;//(dist);
-        Color.g += 1.0;//(dist);
-        Color.b += 1.0;//(dist);
+    if (quadIntensity <= 1.0 && quadIntensity >= 0.0) {
+    
+        Color.r += quadIntensity;
+        Color.g += quadIntensity;
+        Color.b += quadIntensity;
         gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
-    } else
-    {
+        
+    } else {
+    
+        gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
+    }
+    
+    //if (quadIntensity > 0.0 && quadIntensity < 1.0)
+    //{
+    //    Color.r += 1.0;//(dist);
+    //    Color.g += 1.0;//(dist);
+    //    Color.b += 1.0;//(dist);
+    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
+    //} else
+    //{
         //Color.r += 1.0;//(dist);
         //Color.g += 1.0;//(dist);
         //Color.b += 1.0;//(dist);
-        gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
-    }
+    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
+    //}
     
     
 
