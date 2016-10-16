@@ -27,6 +27,7 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 varying vec2 v_vPosition;
 
+uniform float expand;       // The spread of the radial gradient
 uniform vec2 center;        // The center position of the texture
 uniform vec2 offset;        // The x and y offset from the center
 uniform float radius;       // Radius of the gradient, relitive to texture
@@ -37,15 +38,18 @@ void main()
     
     // Test Setting the color to 1 if x < AN AMOUNT
     
+    float INTENSITY_SCALAR = 5.0;                       // The greater: the less the distance will affect the expantion of the gradient
+    float Expand = 0.4 - (expand / INTENSITY_SCALAR);   // 0.4 = Default Value
+    
     // Adds offsets to center
-    vec2 Center = center + offset; // Gradient Center
+    vec2 Center = center + offset;                      // Gradient Center
 
-    float dist = length( Center - v_vPosition.xy ); // Distance
+    float dist = length( Center - v_vPosition.xy );     // Distance
     
     vec4 Color = v_vColour;
 
-    float maxDistance = pow( abs(radius), 0.4);
-    float quadDistance = pow( abs(dist), 0.4);
+    float maxDistance = pow( abs(radius), Expand);
+    float quadDistance = pow( abs(dist), Expand);
 
     float quadIntensity = 1.0 - (min( quadDistance, maxDistance ) / maxDistance);
     
