@@ -168,7 +168,7 @@ self.MAX_IMAGES = 1;                 // Max number of images in sprite - 1
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="50">
+    <event eventtype="6" enumb="52">
       <action>
         <libid>1</libid>
         <id>603</id>

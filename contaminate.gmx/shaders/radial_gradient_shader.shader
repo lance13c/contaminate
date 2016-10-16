@@ -27,8 +27,8 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 varying vec2 v_vPosition;
 
-uniform float expand;       // How much is only inner color
-uniform vec2 center;        // The center position of the gradient, relitive to texture
+uniform vec2 center;        // The center position of the texture
+uniform vec2 offset;        // The x and y offset from the center
 uniform float radius;       // Radius of the gradient, relitive to texture
 uniform vec2 spriteSize;    // Height of texture
 
@@ -36,8 +36,11 @@ void main()
 {
     
     // Test Setting the color to 1 if x < AN AMOUNT
+    
+    // Adds offsets to center
+    vec2 Center = center + offset; // Gradient Center
 
-    float dist = length( center - v_vPosition.xy ); // Distance
+    float dist = length( Center - v_vPosition.xy ); // Distance
     
     vec4 Color = v_vColour;
 
@@ -57,50 +60,6 @@ void main()
     
         gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
     }
-    
-    //if (quadIntensity > 0.0 && quadIntensity < 1.0)
-    //{
-    //    Color.r += 1.0;//(dist);
-    //    Color.g += 1.0;//(dist);
-    //    Color.b += 1.0;//(dist);
-    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
-    //} else
-    //{
-        //Color.r += 1.0;//(dist);
-        //Color.g += 1.0;//(dist);
-        //Color.b += 1.0;//(dist);
-    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
-    //}
-    
-    
-
-    //gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord ); 
-
-
-    //vec4 Color = texture2D( gm_BaseTexture, v_vTexcoord );
-
-    //vec2 PosRange = gl_FragCoord.xy / spriteSize;       // gl_FragCoord in 0-1 range
-    //vec2 p = (PosRange.xy - vec2(0.5, 0.5)) / radius; // vec2 should be center of gradient, abs not nessessary, b/c dot product afterwards
-    
-    //float dist = sqrt(dot(p, p)); // Pathagorian therom // Distance between 2 points
-    
-    //if (dist < 1.0)
-    //{
-    //    Color.r = 2.0;//(dist);
-    //    Color.g = 2.0;//(dist);
-    //    Color.b = 2.0;//(dist);
-    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
-    //} else
-    //{
-    //    Color.r = mod(floor(gl_FragCoord.y), 2.0) * 1.0;//(dist);
-    //    Color.g = mod(floor(gl_FragCoord.y), 2.0) * 1.0;//(dist);
-    //    Color.b = mod(floor(gl_FragCoord.y), 2.0) * 1.0;//(dist);
-    //    //Color.r += (dist);
-    //    //Color.g += (dist);
-    //    //Color.b += (dist);
-    //    gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
-    //}
-    //gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
 
 }
 

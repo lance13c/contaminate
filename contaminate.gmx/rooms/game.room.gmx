@@ -79,6 +79,7 @@
     <instance objName="Wall" x="0" y="704" name="inst_945C4151" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="0" y="736" name="inst_8168F371" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="0" y="768" name="inst_CA940BE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Light" x="64" y="64" name="inst_9B578E5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
