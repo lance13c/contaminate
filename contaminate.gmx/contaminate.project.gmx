@@ -33,6 +33,8 @@
         <script>scripts\cell_particle_emiter.gml</script>
         <script>scripts\cell_particle_create.gml</script>
       </scripts>
+      <script>scripts\infected_cell.gml</script>
+      <script>scripts\contagious_cell.gml</script>
     </scripts>
     <script>scripts\max_min.gml</script>
     <scripts name="cell_center">
@@ -52,6 +54,9 @@
     <object>objects\Wall</object>
     <object>objects\Virus</object>
     <object>objects\Light</object>
+    <objects name="viruses">
+      <object>objects\VirusDefault</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>
