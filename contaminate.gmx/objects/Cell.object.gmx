@@ -31,21 +31,26 @@
 phy_fixed_rotation = true;
 image_speed = 0;
 
-self.hp = 100;                          // Health of cell
-self.regenRate = .5;                    // Regeneration Rate
-self.degenRate = .5;                    // Regeneration Rate
-self.regen = false;                     // If the sprite should regenerate (true) or degenerate (false)
-self.centerCell = -1;                   // Id of it's original centerCell
-self.FORCE = 3;                         // Newtons of force for movement
+self.hp = 100;                              // Health of cell
+self.regenRate = .5;                        // Regeneration Rate
+self.degenRate = .5;                        // Regeneration Rate
+self.regen = false;                         // If the sprite should regenerate (true) or degenerate (false)
+self.centerCell = -1;                       // Id of it's original centerCell
+self.FORCE = 3;                             // Newtons of force for movement
 
 self.jellyEffectTime = 2                    // 0 - Range of time when a jelly like effect will take place
 self.MAX_IMAGES = 2                         // Max number of images in sprite - 1
 
-self.infectionLevelMax = 30;            // Infection Resistence, aka max infection level
-self.infectedLevel = 0;                 // Current level of infection
-self.infected = false;                  // If the cell is totally infected
-self.contagious = false;                // If this cell can infect other cells
-self.infectType = noone;                // Type of virus
+// Infection Resistence, aka max infection level
+self.infectionLevelMax = script_execute(gen_max_infection_level, 30);
+
+self.infectedLevel = 0;                     // Current level of infection
+
+self.virus = ds_map_create();
+
+self.infected = false;                      // If the cell is totally infected
+self.contagious = false;                    // If this cell can infect other cells
+self.infectType = noone;                    // Type of virus
 
 </string>
           </argument>
@@ -68,6 +73,48 @@ self.infectType = noone;                // Type of virus
           <argument>
             <kind>9</kind>
             <script>cell_particle_emiter</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>cell_cleanup</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -434,7 +481,8 @@ self.infectType = noone;                // Type of virus
           <argument>
             <kind>1</kind>
             <string>/// On Virus Impact
-self.infected = 1;
+self.infected = true;
+script_execute(create_virus_map_from_obj, other, self);
 </string>
           </argument>
         </arguments>

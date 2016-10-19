@@ -18,6 +18,7 @@
   <scripts name="scripts">
     <script>scripts\cell_jelly_effect.gml</script>
     <script>scripts\movement.gml</script>
+    <script>scripts\cell_cleanup.gml</script>
     <scripts name="cell">
       <script>scripts\update_goto_obj.gml</script>
       <script>scripts\life.gml</script>
@@ -35,6 +36,11 @@
       </scripts>
       <script>scripts\infected_cell.gml</script>
       <script>scripts\contagious_cell.gml</script>
+      <scripts name="virus_col">
+        <script>scripts\create_virus_map_from_map.gml</script>
+        <script>scripts\create_virus_map_from_obj.gml</script>
+      </scripts>
+      <script>scripts\gen_max_infection_level.gml</script>
     </scripts>
     <script>scripts\max_min.gml</script>
     <scripts name="cell_center">
@@ -47,6 +53,7 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\grayscale_cell.shader</shader>
     <shader type="GLSLES">shaders\radial_gradient_shader.shader</shader>
+    <shader type="GLSLES">shaders\virus_spread.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\Cell</object>
@@ -61,7 +68,8 @@
   <rooms name="rooms">
     <room>rooms\game</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
+    <constant name="INFECTION_MAX_OFFSET">5</constant>
     <constant name="INFECTION_RATE">1</constant>
     <constant name="MAX_CELL_HP">100.0</constant>
     <constant name="MAX_CELL_IMAGES">3</constant>
