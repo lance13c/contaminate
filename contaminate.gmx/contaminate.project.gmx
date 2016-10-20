@@ -35,13 +35,14 @@
         <script>scripts\cell_particle_emiter.gml</script>
         <script>scripts\cell_particle_create.gml</script>
       </scripts>
-      <script>scripts\infected_cell.gml</script>
-      <script>scripts\contagious_cell.gml</script>
+      <script>scripts\check_self_contagious_cell.gml</script>
+      <script>scripts\check_other_contagious_cell.gml</script>
       <scripts name="virus_col">
         <script>scripts\create_virus_map_from_map.gml</script>
         <script>scripts\create_virus_map_from_obj.gml</script>
       </scripts>
       <script>scripts\gen_max_infection_level.gml</script>
+      <script>scripts\infect_cell.gml</script>
     </scripts>
     <script>scripts\max_min.gml</script>
     <scripts name="cell_center">

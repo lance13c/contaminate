@@ -46,7 +46,8 @@ self.infectionLevelMax = script_execute(gen_max_infection_level, 30);
 
 self.infectedLevel = 0;                     // Current level of infection
 
-self.virus = ds_map_create();
+self.virus = ds_map_create();               // To minic the virus
+self.virusColor = undefined;                // Virus Color
 
 self.infected = false;                      // If the cell is totally infected
 self.contagious = false;                    // If this cell can infect other cells
@@ -398,7 +399,7 @@ self.infectType = noone;                    // Type of virus
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>infected_cell</script>
+            <script>check_self_contagious_cell</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -438,7 +439,7 @@ self.infectType = noone;                    // Type of virus
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>contagious_cell</script>
+            <script>check_other_contagious_cell</script>
           </argument>
           <argument>
             <kind>0</kind>
@@ -481,8 +482,8 @@ self.infectType = noone;                    // Type of virus
           <argument>
             <kind>1</kind>
             <string>/// On Virus Impact
-self.infected = true;
-script_execute(create_virus_map_from_obj, other, self);
+
+script_execute(infect_cell, self, other.color);
 </string>
           </argument>
         </arguments>
@@ -569,7 +570,7 @@ script_execute(create_virus_map_from_obj, other, self);
         <arguments>
           <argument>
             <kind>9</kind>
-            <script>contagious_cell</script>
+            <script>check_other_contagious_cell</script>
           </argument>
           <argument>
             <kind>0</kind>
