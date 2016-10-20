@@ -5,7 +5,7 @@ var cell_obj  = argument1;
 ds_map_clear(cell_obj.virus);
 
 // Store New Virus Stats
-var v_color = ds_map_find_value(other.virus, 'color');  // virus color
+var v_color = ds_map_find_value(virus, 'color');  // virus color
 ds_map_add(cell_obj.virus, 'color', v_color);
 
 // Test if color is coming over

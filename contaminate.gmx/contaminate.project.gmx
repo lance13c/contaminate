@@ -12,6 +12,7 @@
     <sprite>sprites\s_wall</sprite>
     <sprite>sprites\s_virus</sprite>
     <sprite>sprites\s_light</sprite>
+    <sprite>sprites\s_slice_tool</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -64,6 +65,7 @@
     <objects name="viruses">
       <object>objects\VirusDefault</object>
     </objects>
+    <object>objects\Laser</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>
