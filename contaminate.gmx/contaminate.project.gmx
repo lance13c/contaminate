@@ -29,8 +29,6 @@
           <script>scripts\cell_col_center_cell.gml</script>
         </scripts>
         <scripts name="virus_col">
-          <script>scripts\create_virus_map_from_map.gml</script>
-          <script>scripts\create_virus_map_from_obj.gml</script>
           <script>scripts\cell_col_virus.gml</script>
         </scripts>
         <scripts name="cell">
@@ -44,10 +42,12 @@
         <script>scripts\cell_particle_create.gml</script>
         <script>scripts\setup_particles.gml</script>
       </scripts>
-      <script>scripts\check_if_contagious_cell.gml</script>
       <script>scripts\gen_max_infection_level.gml</script>
       <script>scripts\infect_cell.gml</script>
       <script>scripts\update_cell.gml</script>
+      <scripts name="Step">
+        <script>scripts\check_if_contagious_cell.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\max_min.gml</script>
     <scripts name="cell_center">
