@@ -1,3 +1,4 @@
+/// Checks if this Cell is contagious
 
 // When infected and not contagious
 if (self.infected && !self.contagious) {

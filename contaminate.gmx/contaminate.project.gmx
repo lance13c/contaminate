@@ -33,6 +33,9 @@
           <script>scripts\create_virus_map_from_obj.gml</script>
           <script>scripts\cell_col_virus.gml</script>
         </scripts>
+        <scripts name="cell">
+          <script>scripts\check_other_contagious_cell.gml</script>
+        </scripts>
       </scripts>
       <script>scripts\in_regen_range.gml</script>
       <script>scripts\cell_movement.gml</script>
@@ -41,8 +44,7 @@
         <script>scripts\cell_particle_create.gml</script>
         <script>scripts\setup_particles.gml</script>
       </scripts>
-      <script>scripts\check_self_contagious_cell.gml</script>
-      <script>scripts\check_other_contagious_cell.gml</script>
+      <script>scripts\check_if_contagious_cell.gml</script>
       <script>scripts\gen_max_infection_level.gml</script>
       <script>scripts\infect_cell.gml</script>
       <script>scripts\update_cell.gml</script>
