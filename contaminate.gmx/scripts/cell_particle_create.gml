@@ -20,9 +20,9 @@ part_emitter_region(global.pSystemCell, pEmitCellVirus, xmin2, xmax2, ymin2, yma
 // Amount of particles
 var amountP1 = irandom(5);
 
-part_emitter_burst(global.pSystemCell, self.pEmitCell, global.pPartCell1, amountP1);
+part_emitter_burst(global.pSystemCell, self.pEmitCell, self.pPartCell1, amountP1);
 
 // If infected
 if (self.infectedLevel > 0) {
-    part_emitter_burst(global.pSystemCell, self.pEmitCellVirus, global.pPartCellV, 5);
+    part_emitter_burst(global.pSystemCell, self.pEmitCellVirus, self.pPartCellV, 5);
 }

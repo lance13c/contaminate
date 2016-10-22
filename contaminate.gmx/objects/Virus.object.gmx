@@ -29,7 +29,7 @@
 
 self.decayRate = INFECTION_RATE;
 self.speedMax  = 40;                // Maximum movement speed
-self.color = c_purple;              // Color of self
+self.color = c_blue;              // Color of self
 </string>
           </argument>
         </arguments>
